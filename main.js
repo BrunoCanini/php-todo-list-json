@@ -20,7 +20,15 @@ createApp({
         },
         
         addNewTask() {
-            console.log("aggiungi nuova task", this.newTask);
+            const data = {
+                newTask : this.newTask
+            };
+
+            axios.post(this.apiUrl, data, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            }).then((risposta) => {
+                this.arrayDati = risposta.data;
+            });
         }
 
 
