@@ -1,20 +1,15 @@
 <?php 
-
-$students = [
-    [
-        'name' => 'Mario' ,
-        'last_name' => 'Rossi'
-    ],
-    [
-        'name' => 'Giovanna' ,
-        'last_name' => 'Bianchi'
-    ],
-];
-
 header('Content-Type: application/json');
 
-$stringaDati = json_encode($students);
+$tasks = file_get_contents("dati.json");
 
-echo $stringaDati;
+// se voglio modificare i dati json:
+$tasksDati = json_decode( $tasks, true);
+
+// $tasksDati[] = "ulteriore scritta";
+
+$tasks = json_encode($tasksDati);
+
+echo $tasks;
 
 ?>
