@@ -10,6 +10,14 @@ createApp({
         }
     },
     methods: {
+
+        getDati(){
+            axios.get(this.apiUrl).then((risposta) => {
+                console.log(risposta.data);
+                this.arrayDati = risposta.data;
+                console.log(this.arrayDati)
+            });
+        },
         
         addNewTask() {
             console.log("aggiungi nuova task", this.newTask);
@@ -19,11 +27,8 @@ createApp({
     },
     mounted() {
 
-        axios.get(this.apiUrl).then((risposta) => {
-            console.log(risposta.data);
-            this.arrayDati = risposta.data;
-            console.log(this.arrayDati)
-        });
+        this.getDati();
+
 
     }
 }).mount("#app")
