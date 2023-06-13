@@ -10,6 +10,8 @@ $tasksDati = json_decode( $tasks, true);
 
 if(isset($_POST["newTask"])){
     $tasksDati[] = $_POST["newTask"];
+
+    file_put_contents("dati.json", json_encode($tasksDati));
 }
 
 $tasks = json_encode($tasksDati);
